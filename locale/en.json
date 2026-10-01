@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "OpenRouter Web Search",
+    "description": "Grounds web_search in OpenRouter's web-search server tool on the Parallel engine, and reuses the OpenRouter credential the harness already stores."
+  }
+}

@@ -1,0 +1,28 @@
+# OpenRouter-backed web search for the dsh web capability seam.
+#
+# This layer does three things, and the second is not cosmetic:
+#
+#   1. Registers provider id "openrouter" with ctx.web.
+#   2. Points the seam's search selection at it. With two usable search providers
+#      registered and none configured, the seam fails EVERY web_search with
+#      WEB_PROVIDER_AMBIGUOUS rather than picking one, so the registration alone
+#      would break the capability it adds.
+#   3. Seeds the settings section. These values are the composition layer: a save
+#      from Settings > Plugins writes an override into the profile's own
+#      cordis.patch.yml, and "Reset to default" clears it back to these.
+#
+# The profile's own cordis.patch.yml is applied after every bundle layer, so setting
+# `searchProvider: deepseek-official` there restores the shipped provider and leaves
+# this one registered but unselected.
+- insert:
+    - id: openrouter-web-search
+      name: '@local/dsh-openrouter-web-search'
+      config:
+        mode: fast
+        searchContextSize: medium
+        maxResults: 5
+
+- id: web
+  name: '@deepseek-ai/dsh-web'
+  config:
+    searchProvider: openrouter

@@ -1,0 +1,39 @@
+{
+  "name": "@local/dsh-openrouter-web-search",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Answers dsh web_search through OpenRouter's web-search server tool on the Parallel engine, reusing the stored OPENROUTER_API_KEY.",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "icon.svg",
+    "locale/en.json"
+  ],
+  "icon": "./icon.svg",
+  "meta": {
+    "title": "OpenRouter Web Search",
+    "description": "Grounds web_search in OpenRouter's web-search server tool on the Parallel engine, and reuses the OpenRouter credential the harness already stores."
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-plugin-manager"
+      ]
+    }
+  }
+}
