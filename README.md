@@ -1,3 +1,5 @@
+[English](README.md) · [Русский](README.ru.md)
+
 # OpenRouter Web Search
 
 Answers the harness's built-in `web_search` tool through OpenRouter's
@@ -12,7 +14,7 @@ plus standardized `url_citation` annotations. The provider maps both onto the se
 
 ## Install
 
-Clone the repository anywhere on disk, then install the bundle from that directory:
+Clone the repository anywhere on disk:
 
 ```
 git clone https://github.com/nightfun-pixel/dsh-OpenRouter-search.git
